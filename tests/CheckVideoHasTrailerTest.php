@@ -24,7 +24,7 @@ class CheckVideoHasTrailerTest extends AbstractTestCase
      */
     public function testChecksVideoTrailer()
     {
-        $this->page->searchText("ураган");
+        $this->page->inputSearchTextToSearchInput("ураган");
         $this->page->clickSearchButton();
         $this->page->hoverMouseToTheSecondVideo();
         $hasTrailerChanged = $this->page->hasVideoTrailerChanged();
@@ -34,12 +34,12 @@ class CheckVideoHasTrailerTest extends AbstractTestCase
 
 
     /**
-     * How the test could look. It calls the 'noodles' test style.
-     * Each method returns exactly the page
-     * where the method transfers.
-     * E.g., clickOnSearchButton() returns the page ResultsVideoPage
-     * which contains only methods for working with (hoverMouseToTheSecondVideo()
-     * and checkThatTrailerIsPresent()).
+     * How the test could look.
+     * Each method returns a page with this method interacts.
+     * If a method clicks on a button, it returns a page
+     * that appears after clicking.
+     * This style's called 'noodle' and allows to quickly
+     * create automatic tests.
      */
 //    public function howTheTestCanLookLike() {
 //        $this

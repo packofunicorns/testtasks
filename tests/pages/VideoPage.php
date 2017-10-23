@@ -16,7 +16,7 @@ class VideoPage extends AbstractComponent
      * @param $text - the text to search
      * @return $this
      */
-    public function searchText($text)
+    public function inputSearchTextToSearchInput($text)
     {
         $searchInput = $this->findByCss(self::SEARCH_INPUT_CSS);
         $searchInput->sendKeys($text);
