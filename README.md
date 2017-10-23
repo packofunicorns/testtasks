@@ -1,2 +1,2 @@
 # testtasks
-SEO and Checking video trailers test tasks
+Checking video trailers test task
