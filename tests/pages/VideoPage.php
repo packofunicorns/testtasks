@@ -2,6 +2,7 @@
 
 namespace My\Pages;
 
+use Facebook\WebDriver\WebDriverExpectedCondition;
 use Lmc\Steward\Component\AbstractComponent;
 use My\TestProperties;
 
@@ -49,13 +50,20 @@ class VideoPage extends AbstractComponent
     {
         $trailerSrc = $this->getTrailerImageSrcForSecondVideo();
 
-        for ($i=1; $i < TestProperties::TIMEOUT; $i++) {
-            sleep($i);
-            if ($trailerSrc !== $this->getTrailerImageSrcForSecondVideo()) {
-                return true;
-            }
-        }
+        $this->wd->wait(TestProperties::TIMEOUT, 100)
+            ->until($this->hasImageChanged());
 
+        return false;
+    }
+
+    /*
+     * Returns true if two images are not compared
+     */
+    private function hasImageChanged($imageSrc)
+    {
+        if ($imageSrc !== $this->getTrailerImageSrcForSecondVideo()) {
+            return trus;
+        }
         return false;
     }
 
